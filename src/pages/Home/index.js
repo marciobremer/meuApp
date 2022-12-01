@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import Header from '../../components/Header'
 import Balance from '../../components/Balance';
 import Movements from '../../components/Movements';
+import Actions from '../../components/Actions';
 
 const list = [
   {
@@ -24,6 +25,20 @@ const list = [
     value: '60,00',
     date: '07/11/2022',
     type: 1 // entrada
+  },
+  {
+    id: 4,
+    label: 'compra do celular',
+    value: '250,00',
+    date: '27/11/2022',
+    type: 0 // despesas
+  },
+  {
+    id: 5,
+    label: 'mercado',
+    value: '5,00',
+    date: '01/12/2022',
+    type: 0 // despesas
   }
 ]
 
@@ -42,6 +57,8 @@ export default function Home() {
       showsVerticalScrollIndicator={false}
       renderItem={ ({ item }) => <Movements data={item}/>}      />
 
+      <Actions/>
+      
     </View>
   );
 }
@@ -49,13 +66,11 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fafafa',
+    backgroundColor: '#f3fcff',
   },
   title: {
     fontSize: 18,
-    marginLeft: 14,
-    marginRight: 14,
-    marginTop: 14,
+    margin: 14,
   },
   list: {
     marginStart: 14,
